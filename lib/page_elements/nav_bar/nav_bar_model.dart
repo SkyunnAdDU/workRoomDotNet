@@ -1,8 +1,8 @@
 import '/flutter_flow/flutter_flow_util.dart';
-import 'admin_dashboard_widget.dart' show AdminDashboardWidget;
+import 'nav_bar_widget.dart' show NavBarWidget;
 import 'package:flutter/material.dart';
 
-class AdminDashboardModel extends FlutterFlowModel<AdminDashboardWidget> {
+class NavBarModel extends FlutterFlowModel<NavBarWidget> {
   @override
   void initState(BuildContext context) {}
 
