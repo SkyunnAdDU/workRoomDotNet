@@ -1,9 +1,9 @@
 import '/flutter_flow/flutter_flow_util.dart';
 import '/page_elements/nav_bar/nav_bar_widget.dart';
-import 'home_page_widget.dart' show HomePageWidget;
+import 'report_log_board_widget.dart' show ReportLogBoardWidget;
 import 'package:flutter/material.dart';
 
-class HomePageModel extends FlutterFlowModel<HomePageWidget> {
+class ReportLogBoardModel extends FlutterFlowModel<ReportLogBoardWidget> {
   ///  State fields for stateful widgets in this page.
 
   // Model for navBar component.

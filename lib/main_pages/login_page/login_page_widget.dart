@@ -1,4 +1,3 @@
-import '/auth/custom_auth/auth_util.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -101,19 +100,53 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                 ? AppBar(
                     backgroundColor: Colors.white,
                     automaticallyImplyLeading: false,
-                    title: Align(
-                      alignment: const AlignmentDirectional(0.0, 0.0),
-                      child: Text(
-                        'Login Page',
-                        style: FlutterFlowTheme.of(context)
-                            .headlineMedium
-                            .override(
-                              fontFamily: 'Readex Pro',
-                              color: Colors.black,
-                              fontSize: 30.0,
-                              letterSpacing: 0.0,
-                              fontWeight: FontWeight.bold,
+                    title: Container(
+                      width: 1842.0,
+                      height: 68.0,
+                      decoration: BoxDecoration(
+                        color: FlutterFlowTheme.of(context).secondaryBackground,
+                      ),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.max,
+                        children: [
+                          InkWell(
+                            splashColor: Colors.transparent,
+                            focusColor: Colors.transparent,
+                            hoverColor: Colors.transparent,
+                            highlightColor: Colors.transparent,
+                            onTap: () async {
+                              context.pushNamed('homePage');
+                            },
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.circular(8.0),
+                              child: Image.asset(
+                                'assets/images/Group_2.png',
+                                width: 130.0,
+                                height: 200.0,
+                                fit: BoxFit.contain,
+                              ),
                             ),
+                          ),
+                          Align(
+                            alignment: const AlignmentDirectional(0.0, 0.0),
+                            child: Padding(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
+                                  730.0, 0.0, 0.0, 0.0),
+                              child: Text(
+                                'Login Page',
+                                style: FlutterFlowTheme.of(context)
+                                    .headlineMedium
+                                    .override(
+                                      fontFamily: 'Readex Pro',
+                                      color: Colors.black,
+                                      fontSize: 30.0,
+                                      letterSpacing: 0.0,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                              ),
+                            ),
+                          ),
+                        ],
                       ),
                     ),
                     actions: const [],
@@ -237,9 +270,18 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                   FlutterFlowTheme.of(context)
                                                       .labelLarge
                                                       .override(
-                                                        fontFamily: 'Inter',
-                                                        letterSpacing: 0.0,
-                                                      ),
+                                                fontFamily: 'Inter',
+                                                color: Colors.black,
+                                                letterSpacing: 0.0,
+                                                fontWeight: FontWeight.bold,
+                                                shadows: [
+                                                  const Shadow(
+                                                    color: Colors.white,
+                                                    offset: Offset(2.0, 2.0),
+                                                    blurRadius: 10.0,
+                                                  )
+                                                ],
+                                              ),
                                               enabledBorder: OutlineInputBorder(
                                                 borderSide: BorderSide(
                                                   color: FlutterFlowTheme.of(
@@ -290,6 +332,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                 .bodyLarge
                                                 .override(
                                                   fontFamily: 'Inter',
+                                                  color: const Color(0xFF454F65),
                                                   letterSpacing: 0.0,
                                                 ),
                                             keyboardType:
@@ -321,9 +364,18 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                   FlutterFlowTheme.of(context)
                                                       .labelLarge
                                                       .override(
-                                                        fontFamily: 'Inter',
-                                                        letterSpacing: 0.0,
-                                                      ),
+                                                fontFamily: 'Inter',
+                                                color: Colors.black,
+                                                letterSpacing: 0.0,
+                                                fontWeight: FontWeight.bold,
+                                                shadows: [
+                                                  const Shadow(
+                                                    color: Colors.white,
+                                                    offset: Offset(2.0, 2.0),
+                                                    blurRadius: 10.0,
+                                                  )
+                                                ],
+                                              ),
                                               enabledBorder: OutlineInputBorder(
                                                 borderSide: BorderSide(
                                                   color: FlutterFlowTheme.of(
@@ -408,13 +460,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                             0.0, 0.0, 0.0, 16.0),
                                         child: FFButtonWidget(
                                           onPressed: () async {
-                                            GoRouter.of(context)
-                                                .prepareAuthEvent();
-                                            await authManager.signIn();
-
-                                            context.goNamedAuth(
-                                                'adminDashboard',
-                                                context.mounted);
+                                            context.pushNamed('adminDashboard');
                                           },
                                           text: 'Sign In',
                                           options: FFButtonOptions(
