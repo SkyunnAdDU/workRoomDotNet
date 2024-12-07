@@ -109,7 +109,15 @@ class _AboutPageWidgetState extends State<AboutPageWidget>
                             hoverColor: Colors.transparent,
                             highlightColor: Colors.transparent,
                             onTap: () async {
-                              context.pushNamed('homePage');
+                              context.pushNamed(
+                                'homePage',
+                                extra: <String, dynamic>{
+                                  kTransitionInfoKey: const TransitionInfo(
+                                    hasTransition: true,
+                                    transitionType: PageTransitionType.fade,
+                                  ),
+                                },
+                              );
                             },
                             child: ClipRRect(
                               borderRadius: BorderRadius.circular(8.0),
@@ -151,8 +159,16 @@ class _AboutPageWidgetState extends State<AboutPageWidget>
                             padding: const EdgeInsetsDirectional.fromSTEB(
                                 0.0, 0.0, 50.0, 0.0),
                             child: FFButtonWidget(
-                              onPressed: () {
-                                print('loginButton pressed ...');
+                              onPressed: () async {
+                                context.pushNamed(
+                                  'loginPage',
+                                  extra: <String, dynamic>{
+                                    kTransitionInfoKey: const TransitionInfo(
+                                      hasTransition: true,
+                                      transitionType: PageTransitionType.fade,
+                                    ),
+                                  },
+                                );
                               },
                               text: 'Login',
                               options: FFButtonOptions(
@@ -216,94 +232,77 @@ class _AboutPageWidgetState extends State<AboutPageWidget>
                       ),
                     ),
                     alignment: const AlignmentDirectional(0.0, -1.0),
-                    child: SingleChildScrollView(
-                      child: Column(
-                        mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
-                                0.0, 70.0, 0.0, 32.0),
-                            child: Container(
-                              width: 736.0,
-                              height: 72.0,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(16.0),
-                              ),
-                              alignment: const AlignmentDirectional(0.0, 0.0),
+                    child: Column(
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.all(16.0),
+                          child: Container(
+                            width: double.infinity,
+                            constraints: const BoxConstraints(
+                              maxWidth: 1000.0,
                             ),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.all(16.0),
-                            child: Container(
-                              width: double.infinity,
-                              constraints: const BoxConstraints(
-                                maxWidth: 1000.0,
-                              ),
-                              decoration: BoxDecoration(
-                                color: const Color(0xC02B2B2B),
-                                boxShadow: const [
-                                  BoxShadow(
-                                    blurRadius: 4.0,
-                                    color: Color(0x33000000),
-                                    offset: Offset(
-                                      0.0,
-                                      2.0,
-                                    ),
-                                  )
-                                ],
-                                borderRadius: BorderRadius.circular(24.0),
-                              ),
-                              child: Align(
-                                alignment: const AlignmentDirectional(0.0, 0.0),
-                                child: Padding(
-                                  padding: const EdgeInsets.all(32.0),
-                                  child: Column(
-                                    mainAxisSize: MainAxisSize.max,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.center,
-                                    children: [
-                                      Align(
-                                        alignment:
-                                            const AlignmentDirectional(0.0, 0.0),
-                                        child: Padding(
-                                          padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 0.0, 0.0, 20.0),
-                                          child: Text(
-                                            'Check us out!',
-                                            textAlign: TextAlign.center,
-                                            style: FlutterFlowTheme.of(context)
-                                                .displaySmall
-                                                .override(
-                                                  fontFamily: 'Readex Pro',
-                                                  color: Colors.white,
-                                                  letterSpacing: 0.0,
-                                                ),
-                                          ),
+                            decoration: BoxDecoration(
+                              color: const Color(0xC02B2B2B),
+                              boxShadow: const [
+                                BoxShadow(
+                                  blurRadius: 4.0,
+                                  color: Color(0x33000000),
+                                  offset: Offset(
+                                    0.0,
+                                    2.0,
+                                  ),
+                                )
+                              ],
+                              borderRadius: BorderRadius.circular(24.0),
+                            ),
+                            child: Align(
+                              alignment: const AlignmentDirectional(0.0, 0.0),
+                              child: Padding(
+                                padding: const EdgeInsets.all(32.0),
+                                child: Column(
+                                  mainAxisSize: MainAxisSize.max,
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    Align(
+                                      alignment: const AlignmentDirectional(0.0, 0.0),
+                                      child: Padding(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                            0.0, 0.0, 0.0, 20.0),
+                                        child: Text(
+                                          'Check us out!',
+                                          textAlign: TextAlign.center,
+                                          style: FlutterFlowTheme.of(context)
+                                              .displaySmall
+                                              .override(
+                                                fontFamily: 'Readex Pro',
+                                                color: Colors.white,
+                                                letterSpacing: 0.0,
+                                              ),
                                         ),
                                       ),
-                                      Text(
-                                        'Welcome to the Student Attendance Scanner project! Our mission is to streamline the attendance tracking process for workroom access in educational institutions. \n\nBy leveraging QR code technology, we aim to provide an efficient, user-friendly solution that enhances student engagement and facilitates accurate attendance logging. Our system not only records attendance but also offers insights through data visualization, helping administrators manage workroom usage effectively. \n\nWe are committed to continuous improvement and innovation, ensuring a seamless experience for both students and staff.',
-                                        textAlign: TextAlign.justify,
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyMedium
-                                            .override(
-                                              fontFamily: 'Inter',
-                                              color: Colors.white,
-                                              fontSize: 30.0,
-                                              letterSpacing: 0.0,
-                                            ),
-                                      ),
-                                    ],
-                                  ),
+                                    ),
+                                    Text(
+                                      'Welcome to the Student Attendance Scanner project! Our mission is to streamline the attendance tracking process for workroom access in educational institutions. \n\nBy leveraging QR code technology, we aim to provide an efficient, user-friendly solution that enhances student engagement and facilitates accurate attendance logging. Our system not only records attendance but also offers insights through data visualization, helping administrators manage workroom usage effectively. \n\nWe are committed to continuous improvement and innovation, ensuring a seamless experience for both students and staff.',
+                                      textAlign: TextAlign.justify,
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .override(
+                                            fontFamily: 'Inter',
+                                            color: Colors.white,
+                                            fontSize: 30.0,
+                                            letterSpacing: 0.0,
+                                          ),
+                                    ),
+                                  ],
                                 ),
                               ),
-                            ).animateOnPageLoad(
-                                animationsMap['containerOnPageLoadAnimation']!),
-                          ),
-                        ],
-                      ),
+                            ),
+                          ).animateOnPageLoad(
+                              animationsMap['containerOnPageLoadAnimation']!),
+                        ),
+                      ],
                     ),
                   ),
                 ),

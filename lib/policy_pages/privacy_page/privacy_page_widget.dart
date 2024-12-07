@@ -103,13 +103,30 @@ class _PrivacyPageWidgetState extends State<PrivacyPageWidget>
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         children: [
-                          ClipRRect(
-                            borderRadius: BorderRadius.circular(8.0),
-                            child: Image.asset(
-                              'assets/images/Group_2.png',
-                              width: 130.0,
-                              height: 200.0,
-                              fit: BoxFit.contain,
+                          InkWell(
+                            splashColor: Colors.transparent,
+                            focusColor: Colors.transparent,
+                            hoverColor: Colors.transparent,
+                            highlightColor: Colors.transparent,
+                            onTap: () async {
+                              context.pushNamed(
+                                'homePage',
+                                extra: <String, dynamic>{
+                                  kTransitionInfoKey: const TransitionInfo(
+                                    hasTransition: true,
+                                    transitionType: PageTransitionType.fade,
+                                  ),
+                                },
+                              );
+                            },
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.circular(8.0),
+                              child: Image.asset(
+                                'assets/images/Group_2.png',
+                                width: 130.0,
+                                height: 200.0,
+                                fit: BoxFit.contain,
+                              ),
                             ),
                           ),
                           Align(
@@ -142,8 +159,16 @@ class _PrivacyPageWidgetState extends State<PrivacyPageWidget>
                             padding: const EdgeInsetsDirectional.fromSTEB(
                                 0.0, 0.0, 50.0, 0.0),
                             child: FFButtonWidget(
-                              onPressed: () {
-                                print('loginButton pressed ...');
+                              onPressed: () async {
+                                context.pushNamed(
+                                  'loginPage',
+                                  extra: <String, dynamic>{
+                                    kTransitionInfoKey: const TransitionInfo(
+                                      hasTransition: true,
+                                      transitionType: PageTransitionType.fade,
+                                    ),
+                                  },
+                                );
                               },
                               text: 'Login',
                               options: FFButtonOptions(
@@ -207,94 +232,77 @@ class _PrivacyPageWidgetState extends State<PrivacyPageWidget>
                       ),
                     ),
                     alignment: const AlignmentDirectional(0.0, -1.0),
-                    child: SingleChildScrollView(
-                      child: Column(
-                        mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
-                                0.0, 70.0, 0.0, 32.0),
-                            child: Container(
-                              width: 736.0,
-                              height: 0.0,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(16.0),
-                              ),
-                              alignment: const AlignmentDirectional(0.0, 0.0),
+                    child: Column(
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.all(16.0),
+                          child: Container(
+                            width: double.infinity,
+                            constraints: const BoxConstraints(
+                              maxWidth: 1000.0,
                             ),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.all(16.0),
-                            child: Container(
-                              width: double.infinity,
-                              constraints: const BoxConstraints(
-                                maxWidth: 1000.0,
-                              ),
-                              decoration: BoxDecoration(
-                                color: const Color(0xC02B2B2B),
-                                boxShadow: const [
-                                  BoxShadow(
-                                    blurRadius: 4.0,
-                                    color: Color(0x33000000),
-                                    offset: Offset(
-                                      0.0,
-                                      2.0,
-                                    ),
-                                  )
-                                ],
-                                borderRadius: BorderRadius.circular(24.0),
-                              ),
-                              child: Align(
-                                alignment: const AlignmentDirectional(0.0, 0.0),
-                                child: Padding(
-                                  padding: const EdgeInsets.all(32.0),
-                                  child: Column(
-                                    mainAxisSize: MainAxisSize.max,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.center,
-                                    children: [
-                                      Align(
-                                        alignment:
-                                            const AlignmentDirectional(0.0, 0.0),
-                                        child: Padding(
-                                          padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 0.0, 0.0, 20.0),
-                                          child: Text(
-                                            'Did you know?',
-                                            textAlign: TextAlign.center,
-                                            style: FlutterFlowTheme.of(context)
-                                                .displaySmall
-                                                .override(
-                                                  fontFamily: 'Readex Pro',
-                                                  color: Colors.white,
-                                                  letterSpacing: 0.0,
-                                                ),
-                                          ),
+                            decoration: BoxDecoration(
+                              color: const Color(0xC02B2B2B),
+                              boxShadow: const [
+                                BoxShadow(
+                                  blurRadius: 4.0,
+                                  color: Color(0x33000000),
+                                  offset: Offset(
+                                    0.0,
+                                    2.0,
+                                  ),
+                                )
+                              ],
+                              borderRadius: BorderRadius.circular(24.0),
+                            ),
+                            child: Align(
+                              alignment: const AlignmentDirectional(0.0, 0.0),
+                              child: Padding(
+                                padding: const EdgeInsets.all(32.0),
+                                child: Column(
+                                  mainAxisSize: MainAxisSize.max,
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    Align(
+                                      alignment: const AlignmentDirectional(0.0, 0.0),
+                                      child: Padding(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                            0.0, 0.0, 0.0, 20.0),
+                                        child: Text(
+                                          'Did you know?',
+                                          textAlign: TextAlign.center,
+                                          style: FlutterFlowTheme.of(context)
+                                              .displaySmall
+                                              .override(
+                                                fontFamily: 'Readex Pro',
+                                                color: Colors.white,
+                                                letterSpacing: 0.0,
+                                              ),
                                         ),
                                       ),
-                                      Text(
-                                        'At Student Attendance Scanner, we value your privacy. This Privacy Policy outlines how we collect, use, and protect your information when you use our services.\n\n    Information Collection: We collect personal information such as names, course details, and QR code data for attendance logging purposes.\n\n    Usage of Information: Your information is used solely for attendance tracking and reporting, and is not shared with third parties without your consent, except as required by law.\n\n    Data Security: We implement strict security measures to protect your personal information from unauthorized access or disclosure.\n\n    User Rights: You have the right to access, update, or delete your personal information. For inquiries, please contact us using the information above.',
-                                        textAlign: TextAlign.justify,
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyMedium
-                                            .override(
-                                              fontFamily: 'Inter',
-                                              color: Colors.white,
-                                              fontSize: 30.0,
-                                              letterSpacing: 0.0,
-                                            ),
-                                      ),
-                                    ],
-                                  ),
+                                    ),
+                                    Text(
+                                      'At Student Attendance Scanner, we value your privacy. This Privacy Policy outlines how we collect, use, and protect your information when you use our services.\n\n    Information Collection: We collect personal information such as names, course details, and QR code data for attendance logging purposes.\n\n    Usage of Information: Your information is used solely for attendance tracking and reporting, and is not shared with third parties without your consent, except as required by law.\n\n    Data Security: We implement strict security measures to protect your personal information from unauthorized access or disclosure.\n\n    User Rights: You have the right to access, update, or delete your personal information. For inquiries, please contact us using the information above.',
+                                      textAlign: TextAlign.justify,
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .override(
+                                            fontFamily: 'Inter',
+                                            color: Colors.white,
+                                            fontSize: 25.0,
+                                            letterSpacing: 0.0,
+                                          ),
+                                    ),
+                                  ],
                                 ),
                               ),
-                            ).animateOnPageLoad(
-                                animationsMap['containerOnPageLoadAnimation']!),
-                          ),
-                        ],
-                      ),
+                            ),
+                          ).animateOnPageLoad(
+                              animationsMap['containerOnPageLoadAnimation']!),
+                        ),
+                      ],
                     ),
                   ),
                 ),
